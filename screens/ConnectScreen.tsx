@@ -1,10 +1,7 @@
 import { ScrollView, StyleSheet } from 'react-native';
 import React from "react";
 
-import EditScreenInfo from '../components/EditScreenInfo';
-import Profile from '../components/Profile';
-import { Text, View } from '../components/Themed';
-import { RootTabScreenProps } from '../types';
+import ConnectProfile from '../components/ConnectProfile';
 
 import * as data from "../users.json";
 
@@ -19,7 +16,7 @@ class ConnectScreen extends React.Component {
         <EditScreenInfo path="/screens/TabOneScreen.tsx" /> */}
         {
           users.map((user, i) => {
-            return <Profile name={user.name} title={user.title} interests={user.interests} key={`user-${i}`} />
+            return <ConnectProfile name={user.name} title={user.title} interests={user.interests} key={`user-${i}`} />
           })
         }
       </ScrollView>

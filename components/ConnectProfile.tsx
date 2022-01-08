@@ -1,9 +1,9 @@
 import React from "react";
 import { ReactNode } from "react"
 import { StyleSheet } from "react-native"
-import { Text, View } from '../components/Themed';
+import { Text, View } from './Themed';
 
-class Profile extends React.Component<any, any> {
+class ConnectProfile extends React.Component<any, any> {
   render = () : ReactNode => {
     return <View style={styles.profile}>
       <View style={styles.picture}></View>
@@ -45,4 +45,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Profile;
+export default ConnectProfile;
