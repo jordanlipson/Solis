@@ -3,9 +3,8 @@ import React from "react";
 
 import ConnectProfile from '../components/ConnectProfile';
 
-import * as data from "../users.json";
+import users from "../data/connect-users";
 
-const users = data.users
 
 class ConnectScreen extends React.Component {
   render(): React.ReactNode {
@@ -16,7 +15,7 @@ class ConnectScreen extends React.Component {
         <EditScreenInfo path="/screens/TabOneScreen.tsx" /> */}
         {
           users.map((user, i) => {
-            return <ConnectProfile name={user.name} title={user.title} interests={user.interests} key={`user-${i}`} />
+            return <ConnectProfile name={user.name} title={user.title} img={user.img} key={`user-${i}`} />
           })
         }
       </ScrollView>

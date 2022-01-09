@@ -1,24 +1,21 @@
-import { Text, ScrollView, StyleSheet } from 'react-native';
+import { Text, ScrollView, StyleSheet, Image } from 'react-native';
 import React from "react";
 import { View } from '../components/Themed';
 
-const feedItems = [
-  { title: "Floriane Borloz made a post:", body: "Well done everyone!" },
-  { title: "Floriane Borloz made a post:", body: "Hello!" },
-]
+import { feedItems, jordan } from '../data/feed';
 
 class HomeScreen extends React.Component {
   render(): React.ReactNode {
     return (
       <View style={styles.container}>
         <Text style={styles.hello}>Hello, Jordan!</Text>
-        <View style={styles.profilePictureBig} />
+        <Image style={styles.profilePictureBig} source={jordan} />
         <Text style={styles.heresyourfeed}>Here's your feed:</Text>
         <ScrollView style={styles.feedContainer}>
           {
             feedItems.map((f, i) => {
               return <View style={styles.feedItem} key={`feeditem-${i}`}>
-                <View style={styles.profilePicture} />
+                <Image style={styles.profilePicture} source={f.img} />
                 <View style={styles.feedItemText}>
                   <Text style={styles.feedItemTitle}>{f.title}</Text>
                   <Text style={styles.feedItemBody}>{f.body}</Text>
@@ -76,14 +73,15 @@ const styles = StyleSheet.create({
     marginRight: 20
   },
   feedItemText: {
-    backgroundColor: "#00000000"
+    backgroundColor: "#00000000",
+    width: "80%",
   },
   feedItemTitle: {
-    width: "100%"
+    width: "100%",
   },
   feedItemBody: {
     width: "100%",
-    fontStyle: "italic"
+    fontStyle: "italic",
   }
 });
 

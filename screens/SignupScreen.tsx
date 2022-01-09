@@ -65,9 +65,7 @@ class SignupScreen extends React.Component<myProps, {}> {
         <Pressable style={styles.btn} onPress={this.signup}>
           <Text style={styles.btnText}>Sign Up</Text>
         </Pressable>
-        <Pressable style={styles.btn} onPress={this.props.toApp}>
-          <Text style={styles.btnText}>Skip</Text>
-        </Pressable>
+        <Text style={styles.link} onPress={this.props.toApp}>demo: skip to app</Text>
       </View>
     );
   }
@@ -106,6 +104,12 @@ const styles = StyleSheet.create({
   btnText: {
     textAlign: "center",
     fontSize: 18
+  },
+  link: {
+    color: "#F24A4A",
+    width: "100%",
+    textAlign: "center",
+    marginTop: 20
   }
 });
 

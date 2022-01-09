@@ -1,12 +1,12 @@
 import React from "react";
 import { ReactNode } from "react"
-import { StyleSheet } from "react-native"
+import { Image, StyleSheet } from "react-native"
 import { Text, View } from './Themed';
 
 class ConnectProfile extends React.Component<any, any> {
   render = () : ReactNode => {
     return <View style={styles.profile}>
-      <View style={styles.picture}></View>
+      <Image style={styles.picture} source={this.props.img} />
       <View style={styles.text}>
         <Text style={styles.name}>{this.props.name}</Text>
         <Text style={styles.title}>{this.props.title}</Text>

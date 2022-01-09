@@ -1,10 +1,8 @@
-import { Text, ScrollView, StyleSheet } from 'react-native';
+import { Text, ScrollView, StyleSheet, Image } from 'react-native';
 import React from "react";
 import { View } from '../components/Themed';
 
-const chatPeople = [
-  { name: "Floriane Borloz", lastmsg: "Thank you! Sounds great." },
-]
+import users from "../data/chat-users";
 
 class ChatScreen extends React.Component {
   render(): React.ReactNode {
@@ -12,12 +10,12 @@ class ChatScreen extends React.Component {
       <View>
         <ScrollView style={styles.chatContainer}>
           {
-            chatPeople.map((chat, i) => {
+            users.map((chat, i) => {
               return <View style={styles.chat} key={`feeditem-${i}`}>
-                <View style={styles.profilePicture} />
+                <Image style={styles.profilePicture} source={chat.img} />
                 <View style={styles.chatText}>
                   <Text style={styles.chatName}>{chat.name}</Text>
-                  <Text style={styles.chatContent}>{chat.lastmsg}</Text>
+                  <Text style={styles.chatContent}>{chat.msg}</Text>
                 </View>
               </View>
             })
