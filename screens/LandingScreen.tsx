@@ -1,6 +1,8 @@
-import { Text, StyleSheet, Pressable } from 'react-native';
+import { Text, StyleSheet, Pressable, Image } from 'react-native';
 import React from "react";
 import { View } from '../components/Themed';
+import { logo } from "../data/logo.js";
+import { AutoEncryptionLoggerLevel } from 'mongodb';
 
 interface myProps {
   toSignup: any,
@@ -11,7 +13,8 @@ class LandingScreen extends React.Component<myProps, {}> {
   render(): React.ReactNode {
     return (
       <View style={styles.container}>
-        <View style={styles.logoPlaceholder} />
+        {/* <View style={styles.logoPlaceholder} /> */}
+        <Image source={logo} style={styles.logo} />
         <Text style={styles.text}>Meet other woman-aligned university students in STEM.</Text>
         <Pressable style={styles.btn} onPress={this.props.toSignup}>
           <Text style={styles.btnText}>Sign Up</Text>
@@ -32,6 +35,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginVertical: 50,
     height: "100%"
+  },
+  logo: {
+    height: 100,
+    width: 320,
+    marginTop: 150,
+    marginBottom: 50,
+    borderWidth: 1
   },
   logoPlaceholder: {
     height: 200,
