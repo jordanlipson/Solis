@@ -1,5 +1,14 @@
-# SheHacks VI 2022
-react-native front end using Expo
+# Solis
+Solis: A safe space to connect.
+
+See our [Devpost submission](https://devpost.com/software/shehacks-project).
+
+Frontend for Solis, a hackathon submission for SheHacks VI 2022
+
+## Built Using
+- react-native
+- Expo
+- Nodejs
 
 ## Setup
 1. Clone repository
