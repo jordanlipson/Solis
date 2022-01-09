@@ -1,6 +1,7 @@
-import { Text, StyleSheet, Button, TextInput } from 'react-native';
+import { Text, StyleSheet, Button, TextInput, Pressable } from 'react-native';
 import React from "react";
 import { View } from '../components/Themed';
+// import client from "../helpers/db";
 
 interface myProps {
   toApp: any
@@ -34,6 +35,11 @@ class SignupScreen extends React.Component<myProps, {}> {
     console.log(data)
 
     // write data to db
+    // client.connect((err:any) => {
+    //   const collection = client.db("Users").collection("user");
+    //   // perform actions on the collection object
+    //   client.close();
+    // });
   }
 
   onChangeInput = (val: any, param: string) => { this.setState({ [param]: val }) }
@@ -44,9 +50,7 @@ class SignupScreen extends React.Component<myProps, {}> {
         <Text style={styles.title}>Sign up</Text>
         {
           fields.map((f, i) => {
-            return <>
-              {/* <Text style={styles.label} key={`label-${i}`}>{f.label}</Text> */}
-              <TextInput
+            return <TextInput
                 style={styles.input}
                 placeholder={f.label}
                 onChangeText={val => this.onChangeInput(val, f.varname)}
@@ -55,11 +59,15 @@ class SignupScreen extends React.Component<myProps, {}> {
                 key={`input-${i}`}
                 allowFontScaling
               />
-            </>
+              {/* <Text style={styles.label} key={`label-${i}`}>{f.label}</Text> */}
           })
         }
-        <Button title="Sign Up" onPress={this.signup} />
-        <Button title="Skip" onPress={this.props.toApp} />
+        <Pressable style={styles.btn} onPress={this.signup}>
+          <Text style={styles.btnText}>Sign Up</Text>
+        </Pressable>
+        <Pressable style={styles.btn} onPress={this.props.toApp}>
+          <Text style={styles.btnText}>Skip</Text>
+        </Pressable>
       </View>
     );
   }
@@ -87,6 +95,17 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     fontSize: 18,
     marginBottom: 24
+  },
+  btn: {
+    width: 300,
+    backgroundColor: "#f9caa7",
+    borderRadius: 20,
+    padding: 10,
+    marginTop: 10
+  },
+  btnText: {
+    textAlign: "center",
+    fontSize: 18
   }
 });
 

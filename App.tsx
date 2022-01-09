@@ -29,7 +29,7 @@ export default function App() {
       <SafeAreaProvider>
         {
           page == "landing"
-            ? <LandingScreen toSignup={toSignup} />
+            ? <LandingScreen toSignup={toSignup} toApp={toApp} />
             : page == "signup"
              ? <SignupScreen toApp={toApp} />
              : <Navigation colorScheme={colorScheme} />

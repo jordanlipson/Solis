@@ -1,9 +1,10 @@
-import { Text, StyleSheet, Button } from 'react-native';
+import { Text, StyleSheet, Pressable } from 'react-native';
 import React from "react";
 import { View } from '../components/Themed';
 
 interface myProps {
-  toSignup: any
+  toSignup: any,
+  toApp: any
 }
 
 class LandingScreen extends React.Component<myProps, {}> {
@@ -12,7 +13,12 @@ class LandingScreen extends React.Component<myProps, {}> {
       <View style={styles.container}>
         <View style={styles.logoPlaceholder} />
         <Text>Meet other woman-aligned university students in STEM.</Text>
-        <Button title="Sign Up / to app" onPress={this.props.toSignup} />
+        <Pressable style={styles.btn} onPress={this.props.toSignup}>
+          <Text style={styles.btnText}>Sign Up</Text>
+        </Pressable>
+        <Pressable style={styles.btn} onPress={this.props.toApp}>
+          <Text style={styles.btnText}>Skip signup (for demo)</Text>
+        </Pressable>
       </View>
     );
   }
@@ -29,6 +35,17 @@ const styles = StyleSheet.create({
     height: 200,
     width: 300,
     backgroundColor: "#f0cee1",
+  },
+  btn: {
+    width: 300,
+    backgroundColor: "#f9caa7",
+    borderRadius: 20,
+    padding: 10,
+    marginTop: 10
+  },
+  btnText: {
+    textAlign: "center",
+    fontSize: 18
   }
 });
 
